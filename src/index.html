@@ -4,64 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Web Anfony Laguna </title>
     <!-- ------------------- Croll Reveal Libreria ------------------------ -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- ------------------- CSS Files ----------------- -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>        
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <div class="overlay"></div>
     <header>
         <nav class="container">
             <a href="#" class="logo">Port<span>folio.</span></a>
             <div class="links">
                 <ul>
                     <li>
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="#home" class="nav-link">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">About</a>
+                        <a href="#about" class="nav-link">About</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">Servicios</a>
+                        <a href="#services" class="nav-link">Servicios</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">Portafolio</a>
+                        <a href="#portafolio" class="nav-link">Portafolio</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">Contacto</a>
+                        <a href="#contact" class="nav-link">Contacto</a>
                     </li>
                 </ul>
                 <i class="uil uil-moon toggle-btn"></i>
+            </div>
+            <div class="hamburguer">
+              <div class="bar"></div>
+              <div class="bar"></div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="showcase-area">
-            <img src="./assets/square1.png" class="shape square" alt="">
+        <section class="showcase-area" id="home">
             <div class="container">
-                <div class="showcase-info">
-                    <h3 class="sub-heading">Desarrollador Web</h3>
-                    <h1 class="heading">Anfony Laguna Avila</h1>
-                    <p class="text">Soy un desarrollador web. ¡Manos a la obra! </p>
-                    <div class="cta">
-                        <a href="mailto:Anfony_Jose@hotmail.com" class="btn">Contactame</a>
-                        <a href="./assets/CV-Anfony.pdf" download class="btn secondary-btn">Descargar CV</a>
-                    </div>
-                </div>
-                <div class="showcase-image">
-                    <img src="./assets/Anfony.png" class="person" alt="Anfony">
-                    <img src="./assets/circle1.png" class="shape circle" alt="">
-                    <img src="./assets/dots.png" class="shape dots" alt="">
-                </div>
+              <img src="./assets/wallpaper2.png"  class="background" >
+              <div class="showcase-info">
+                  <h3 class="sub-heading">Desarrollador Web</h3>
+                  <h1 class="heading">Anfony Laguna Avila</h1>
+                  <p class="text">Soy un desarrollador web. ¡Manos a la obra! </p>
+                  <div class="cta">
+                      <a href="mailto:Anfony_Jose@hotmail.com" class="btn">Contactame</a>
+                      <a href="./assets/CV-Anfony.pdf" download class="btn secondary-btn">Descargar CV</a>
+                  </div>
+              </div>
+              <div class="showcase-image">
+                  <img src="./assets/Anfony.png" class="person" alt="Anfony">
+                  <img src="./assets/circle1.png" class="shape circle" alt="">
+                  <img src="./assets/dots.png" class="shape dots" alt="">
+              </div>
             </div>
         </section>
 
-        <section class="about section">
+        <section class="about section" id="about">
             <img src="./assets/triangle.png" class="shape triangle" alt="">
             <div class="container">
                 <div class="about-grid">
@@ -490,7 +496,7 @@
             </div>
         </section>
 
-        <section class="services section">
+        <section class="services section" id="services">
           <img src="./assets/triangle.png" class="shpe triangle">
           <div class="container">
             <div class="services-info">
@@ -571,22 +577,286 @@
           </div>
         </section>
 
-        <section class="portfolio section">
+        <section class="portfolio section" id="portafolio">
+          <div class="modal">
+            <div class="modal-overlay"></div>
+            <div class="slider-wrap">
+              <div class="prev-btn navigation">
+                <i class="uil uil-angle-left-b"></i>
+              </div>
+              <div class="images">
+                <img class="showImage" src="assets/port1.jpg">
+                <img src="assets/port2.jpg">
+                <img src="assets/port3.jpg">
+                <img src="assets/port4.jpg">
+                <img src="assets/port5.jpg">
+                <img src="assets/port6.jpg">
+              </div>
+              <div class="next-btn navigation">
+                 <i class="uil uil-angle-right-b"></i>
+              </div>
+            </div>
+          </div>
           <div class="container">
             <div class="portfolio-header">
               <div class="portfolio-title">
                 <h3 class="sub-heading">Portfolio</h3>
                 <h1 class="heading">Ultimos Proyectos</h1>
               </div>
-              <div class="filter-btns"></div>
+              <div class="filter-btns">
+                <button class="filter-btn" data-filter="all">Todo</button>
+                <button class="filter-btn" data-filter=".product">Producto</button>
+                <button class="filter-btn" data-filter=".inter">Interacción</button>
+                <button class="filter-btn" data-filter=".web">Web App</button>
+              </div>
             </div>
-            <div class="portfolio-gallery"></div>
+            <div class="portfolio-gallery">
+              <div class="mix prt-card inter">
+                <div class="prt-image">
+                  <img src="./assets/port1.jpg" alt="">
+                  <div class="prt-overlay">
+                    <span class="prt-icon zoom-icon" style="--i: 0s">
+                      <i class="uil uil-search-plus"></i>
+                    </span>
+                    <a href="#" class="prt-icon" style="--i: 0.15s">
+                      <i class="uil uil-link-h"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="prt-desc">
+                  <h3>Seguros Monterrey NYL</h3>
+                  <a href="#" class="btn secondary-btn sm">Leer más</a>
+                </div>
+              </div>
+              <div class="mix prt-card product">
+                <div class="prt-image">
+                  <img src="./assets/port2.jpg" alt="">
+                  <div class="prt-overlay">
+                    <span class="prt-icon zoom-icon" style="--i: 0s">
+                      <i class="uil uil-search-plus"></i>
+                    </span>
+                    <a href="#" class="prt-icon" style="--i: 0.15s">
+                      <i class="uil uil-link-h"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="prt-desc">
+                  <h3>Anfony Producto y Diseño</h3>
+                  <a href="#" class="btn secondary-btn sm">Leer más</a>
+                </div>
+              </div>
+              <div class="mix prt-card web">
+                <div class="prt-image">
+                  <img src="./assets/port3.jpg" alt="">
+                  <div class="prt-overlay">
+                    <span class="prt-icon zoom-icon" style="--i: 0s">
+                      <i class="uil uil-search-plus"></i>
+                    </span>
+                    <a href="#" class="prt-icon" style="--i: 0.15s">
+                      <i class="uil uil-link-h"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="prt-desc">
+                  <h3>COTEMAR</h3>
+                  <a href="#" class="btn secondary-btn sm">Leer más</a>
+                </div>
+              </div>
+              <div class="mix prt-card web">
+                <div class="prt-image">
+                  <img src="./assets/port4.jpg" alt="">
+                  <div class="prt-overlay">
+                    <span class="prt-icon zoom-icon" style="--i: 0s">
+                      <i class="uil uil-search-plus"></i>
+                    </span>
+                    <a href="#" class="prt-icon" style="--i: 0.15s">
+                      <i class="uil uil-link-h"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="prt-desc">
+                  <h3>Budgett Travel</h3>
+                  <a href="#" class="btn secondary-btn sm">Leer más</a>
+                </div>
+              </div>
+              <div class="mix prt-card inter">
+                <div class="prt-image">
+                  <img src="./assets/port5.jpg" alt="">
+                  <div class="prt-overlay">
+                    <span class="prt-icon zoom-icon" style="--i: 0s">
+                      <i class="uil uil-search-plus"></i>
+                    </span>
+                    <a href="#" class="prt-icon" style="--i: 0.15s">
+                      <i class="uil uil-link-h"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="prt-desc">
+                  <h3>AXXA Seguros</h3>
+                  <a href="#" class="btn secondary-btn sm">Leer más</a>
+                </div>
+              </div>
+              <div class="mix prt-card web">
+                <div class="prt-image">
+                  <img src="./assets/port6.jpg" alt="">
+                  <div class="prt-overlay">
+                    <span class="prt-icon zoom-icon" style="--i: 0s"> 
+                      <i class="uil uil-search-plus"></i>
+                    </span>
+                    <a href="#" class="prt-icon" style="--i: 0.15s">
+                      <i class="uil uil-link-h"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="prt-desc">
+                  <h3>IBM</h3>
+                  <a href="#" class="btn secondary-btn sm">Leer más</a>
+                </div>
+              </div>
+            </div>
           </div> 
+        </section>
+
+        <section class="testimonials sections">
+          <div class="container">
+            <div class="section-background">
+              <img src="./assets/Anfony.png" class="person" alt="">
+              <img src="./assets/circle2.png" class="circle" alt="">
+              <img src="./assets/square1.png" class="square" alt="">
+            </div>
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="client">
+                    <img src="./assets/testi1.png" alt="">
+                    <div class="client-info">
+                      <h4>Nemili Montserrat</h4>
+                      <h5>Abogada extrajudicial <a href="https://www.previsionlegal.com.mx/">@Previsionlegal</a></h5>
+                    </div>
+                  </div>
+                  <q class="text">
+                    Sirva la presente para hacer de su conocimiento que a lo largo de 6 años que llevo de conocer al C. Anfony José María Laguna Ávila, he tenido el agrado de sostener un trato eminentemente cordial, solidario y leal, lo que me permitió corroborar algunos rasgos de su personalidad tales como la responsabilidad, integridad, dedicación, entusiasmo y solidaridad.
+                    En ese sentido, extiendo mi recomendación personal hacia el C. Anfony José María Laguna Ávila y puedo afirmar que se trata de una persona altamente responsable y competente para desarrollar cualquier puesto y tarea que se le encomiende.
+                    Por los motivos anteriormente expuestos, suscribo la presente para los efectos conducentes y quedo de usted para confirmar cualquier información aquí manifestada.
+                    Reciba un cordial saludo.                     
+                  </q>
+                </div>
+                <div class="swiper-slide">
+                  <div class="client">
+                    <img src="./assets/testi2.png" alt="">
+                    <div class="client-info">
+                      <h4>ISOL Ingenieria de Soluciones</h4>
+                      <h5>Consultora y Desarrolladora Web <a href="https://isol.mx/">@ISOL</a></h5>
+                    </div>
+                  </div>
+                  <q class="text">
+                    Por medio de la presente hago constar que el Sr. Anfony Jose María Laguna Avila laboró en
+                    esta empresa del 10 de octubre del 2019 al 31 de diciembre del 2021, como Desarrollador Web.
+                    Demostrando ser una persona dedicada y puntual en lo encomendado.
+                    
+                    Por lo cual no tenemos inconveniente en extender la siguiente carta de recomendación.
+                    Se extiende la presente para fines que al interesado convenga.
+                  </q>
+                </div>
+                <div class="swiper-slide">
+                  <div class="client">
+                    <img src="./assets/testi3.png" alt="">
+                    <div class="client-info">
+                      <h4>Gadai De México </h4>
+                      <h5>Consultora <a href="https://www.linkedin.com/company/gadai-de-m-xico-s-a-de-c-v-?originalSubdomain=mx">@Gadai</a></h5>
+                    </div>
+                  </div>
+                  <q class="text">
+                    Sirva la presente para hacer de su conocimiento que a lo largo de 6 años que llevo de conocer al C. Anfony José María Laguna Ávila, he tenido el agrado de sostener un trato eminentemente cordial, solidario y leal, lo que me permitió corroborar algunos rasgos de su personalidad tales como la responsabilidad, integridad, dedicación, entusiasmo y solidaridad.
+                    En ese sentido.                    
+                  </q>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+              <div class="testimonials-title">
+                <h3 class="sub-heading">Recomendaciones</h3>
+                <h1 class="heading">Opinion de conocidos satisfechos</h1>
+              </div>
+          </div>
+        </section>
+
+        <section class="contact section" id="contact">
+          <img src="./assets/triangle.png" class="shape triangle">
+          <div class="container">
+            <img src="./assets/square2.png" class="shape square">
+            <div class="contact-info">
+              <h3 class="sub-heading">Contactame</h3>
+              <h1 class="heading">Trabajemos juntos</h1>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit, est etiam lacinia varius dictumst blandit
+              </p>
+              <a href="mailto:Anfony_Jose@hotmail.com" 
+                class="mail">Anfony_Jose@hotmail.com 
+                <i class="uil uil-arrow-right"></i>
+            </a>
+            </div>
+            <form action="index.html" class="contact-form">
+              <h3>Enviar Mensaje</h3>
+              <input type="text" class="form-input" placeholder="Nombre" required>
+              <input type="email" class="form-input" placeholder="Email" required>
+              <textarea placeholder="Escribe un mensaje" class="form-input" required></textarea>
+              <input type="submit" value="Send" class="btn">
+            </form>
+          </div>
+        </section>
+
+        <section class="subscription section">
+          <div class="container">
+            <img src="./assets/map.png" class="map">
+            <div class="sub-box">
+              <img src="./assets/square2.png" class="shape square">
+              <div class="sub-info">
+                <h3 class="sub-heading">Noticias</h3>
+                <h1 class="heading">Conoce más acerca de mis proyectos</h1>
+                <p class="text">
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit, fringilla gravida integer habitant malesuada molestie quam, 
+                  natoque convallis ante ligula potenti nisi. At iaculis fusce leo morbi quam mattis habitasse integer, 
+                  nunc scelerisque venenatis aptent torquent conubia tempor, in parturient risus ut interdum nisi non.
+                </p>
+              </div>
+              <form action="index.html">
+                <input type="email" placeholder="Email" class="form-input" required>
+                <input type="submit" placeholder="Suscribete" class="btn">
+              </form>
+            </div>
+          </div>
         </section>
     </main>
 
+    <footer>
+      <div class="container">
+        <a href="#" class="logo">Port<span>folio.</span></a>
+        <p class="text">&copy; Copyrigth 2022. Todos los derechos reservados</p>
+        <ul class="social-media">
+          <li>
+            <a href="https://www.facebook.com/alagunaavila" class="social-link">
+              <i class="uil uil-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/anfony-jos%C3%A9-maria-laguna-avila-063833123" class="social-link">
+              <i class="uil uil-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/anfony_laguna/" class="social-link">
+              <i class="uil uil-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
     <!-- JavaScript Files  -->
 
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./js/mixitup.min.js"></script>
     <script src="./js/app.js"></script>
 </body>
 
