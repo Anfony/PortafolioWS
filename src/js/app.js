@@ -5,9 +5,23 @@ const sk_counters = document.querySelectorAll(".counter span");
 const progress_bars = document.querySelectorAll(".skills svg circle");
 
 const ml_section = document.querySelector(".milestones");
-const ml_counters = document.querySelectorAll(".number span")
+const ml_counters = document.querySelectorAll(".number span");
+
+const prt_section = document.querySelector(".portfolio");
+const zoom_icons = document.querySelectorAll(".zoom-icon");
+const modal_overlay = document.querySelector (".modal-overlay");
+const images = document.querySelectorAll(".images img");
+const prev_btn = document.querySelector(".prev-btn");
+const next_btn = document.querySelector(".next-btn");
+
+const links = document.querySelectorAll(".nav-link");
+
+const toggle_btn = document.querySelector(".toggle-btn")
+
+const hamburguer = document.querySelector(".hamburguer");
 
 window.addEventListener("scroll", () => {
+    activeLink();
     if(!skillsPlayed) skillsCounter();
     if(!mlPlayed) mlCounter();
 });
@@ -95,3 +109,132 @@ function mlCounter() {
         }, 400);
     });
 }
+
+mlCounter();
+
+// ---------------------  Portafolio Animación  -----------------------------------
+
+let mixer = mixitup(".portfolio-gallery", {
+    selectors: {
+        target: ".prt-card",
+    },
+    animation: {
+        duration: 500, 
+    },
+});
+
+
+
+// ---------------------  Modal Pop Up Animación  -----------------------------------
+
+let currentIndex = 0;
+
+zoom_icons.forEach((icn, i) => 
+    icn.addEventListener("click", () => {
+        prt_section.classList.add("open");
+        document.body.classList.add("stopScrolling")
+        currentIndex = i;
+        changeImage(currentIndex)
+    })
+);
+
+modal_overlay.addEventListener("click", () => {
+    prt_section.classList.remove("open")
+    document.body.classList.remove("stopScrolling");
+});
+
+prev_btn.addEventListener("click", () => {
+    if(currentIndex === 0) {
+        currentIndex = 5;
+    } else {
+        currentIndex--;
+    }
+    console.log(currentIndex);
+    changeImage(currentIndex);
+});
+
+next_btn.addEventListener("click", () => {
+    if(currentIndex === 5) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+    console.log(currentIndex);
+    changeImage(currentIndex);
+})
+
+function changeImage(index) {
+    images.forEach((img) => img.classList.remove("showImage"));
+    images[index].classList.add("showImage")
+}
+
+
+// --------------------- Swipper Animación  -----------------------------------
+
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    speed: 500,
+    autoplay: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+  
+
+// --------------------- Link Activo en el Scroll  -----------------------------------
+
+function activeLink() {
+    let sections = document.querySelectorAll("section[id")
+    let passedSection = Array.from(sections)
+     .map((sct, i) => {
+         return {
+             y: sct.getBoundingClientRect().top - header.offsetHeight,
+             id: i,
+         };
+     })    
+     .filter((sct) => sct.y <= 0);
+
+    let currSectionID = passedSection.at(-1).id;
+
+    links.forEach((l) => l.classList.remove("active"));
+    links[currSectionID].classList.add("active");
+}
+
+activeLink();
+
+
+// --------------------- Tema oscuro  -----------------------------------
+
+let firstTheme = localStorage.getItem("dark");
+changeTheme(+firstTheme);
+
+function changeTheme(isDark) {
+    if(isDark) {
+        document.body.classList.add("dark");
+        toggle_btn.classList.replace("uil-moon", "uil-sun");
+        localStorage.setItem("dark", 1);
+    } else {
+        document.body.classList.remove("dark");
+        toggle_btn.classList.replace("uil-sun", "uil-moon");
+        localStorage.setItem("dark", 0);
+    }
+}
+
+toggle_btn.addEventListener("click", () => {
+    changeTheme(!document.body.classList.contains("dark"));
+});
+
+// --------------------- Navbar Menu  -----------------------------------
+
+hamburguer.addEventListener("click", () => {
+    document.body.classList.toggle("open");
+    document.body.classList.toggle("stopScrolling");
+});
+
+links.forEach((link) => 
+  link.addEventListener("click", () => {
+    document.body.classList.remove("open");
+    document.body.classList.remove("stopScrolling");
+   })
+);
