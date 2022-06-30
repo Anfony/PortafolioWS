@@ -4,17 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Anfony/PortafolioWS.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anfony Laguna",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Anfony/PortafolioWS/issues"
   },
-  "homepage": "https://github.com/Anfony/PortafolioWS#readme"
+  "homepage": "https://github.com/Anfony/PortafolioWS#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.18"
+  }
 }
